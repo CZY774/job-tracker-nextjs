@@ -13,3 +13,27 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Job {
+  id          String   @id @default(cuid())
+  company     String
+  position    String
+  location    String?
+  salary      String?
+  description String?
+  status      Status   @default(APPLIED)
+  appliedAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  notes       String?
+  
+  @@map("jobs")
+}
+
+enum Status {
+  APPLIED
+  SCREENING
+  INTERVIEW
+  REJECTED
+  OFFERED
+  ACCEPTED
+}
