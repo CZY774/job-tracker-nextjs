@@ -1,6 +1,6 @@
 # Job Tracker Dashboard
 
-A modern job application tracking dashboard built with Next.js, ShadCN UI, Prisma, and PostgreSQL.
+### A modern job application tracking dashboard built with Next.js, ShadCN UI, Prisma, and PostgreSQL.
 
 ## Features
 
