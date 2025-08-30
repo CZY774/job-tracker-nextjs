@@ -17,7 +17,7 @@ import {
   Edit,
   Trash2,
 } from "lucide-react";
-import { Job, UpdateJobData } from "@/types/job";
+import { CreateJobData, Job, UpdateJobData } from "@/types/job";
 import { JobForm } from "./job-form";
 
 interface JobCardProps {
@@ -39,8 +39,14 @@ const statusColors = {
 };
 
 export function JobCard({ job, onUpdate, onDelete }: JobCardProps) {
-  const handleUpdate = async (data: UpdateJobData) => {
-    await onUpdate(job.id, data);
+  const handleUpdate = async (data: UpdateJobData | CreateJobData) => {
+    if ("status" in data) {
+      await onUpdate(job.id, data);
+    } else {
+      console.warn(
+        "handleUpdate received CreateJobData, which is unexpected in JobCard."
+      );
+    }
   };
 
   const handleDelete = async () => {
