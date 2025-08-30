@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/db";
+import { Job } from "@/app/generated/prisma";
 
 export async function GET() {
   try {
@@ -19,7 +20,7 @@ export async function GET() {
     ];
     const csvRows = [
       headers.join(","),
-      ...jobs.map((job) =>
+      ...jobs.map((job: Job) =>
         [
           `"${job.company}"`,
           `"${job.position}"`,
