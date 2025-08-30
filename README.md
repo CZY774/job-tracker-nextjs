@@ -63,23 +63,33 @@ npx shadcn@latest add button card input label select textarea badge dialog dropd
 ### 5. Setup Prisma
 
 ```bash
-# Generate Prisma client
+# Install dependencies
+npm install tsx --save-dev
+
+# Generate Prisma client (penting!)
 npx prisma generate
 
 # Push schema to database
 npx prisma db push
 
+# Seed database dengan sample data
+npx prisma db seed
+
 # Optional: Open Prisma Studio to view data
 npx prisma studio
 ```
 
-**IMPORTANT**: Jika masih error, coba restart dev server setelah generate:
+**IMPORTANT**: Setelah generate, **restart dev server**:
 
 ```bash
 # Stop dev server (Ctrl+C)
-npx prisma generate
 npm run dev
 ```
+
+**Troubleshooting**:
+- Jika masih error, coba hapus folder `app/generated/prisma` dan run `npx prisma generate` lagi
+- Pastikan `DATABASE_URL` di `.env` sudah benar
+- Cek apakah ada file di `app/generated/prisma/index.js` setelah generate
 
 ### 6. Run the Development Server
 
@@ -143,10 +153,14 @@ enum Status {
 - `DELETE /api/jobs` - Delete job
 - `GET /api/export` - Export jobs to CSV
 
-## Contributing
-
-Feel free to submit issues and enhancement requests!
-
-## License
-
-MIT
+## <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px" alt="waving hand"> Get In Touch
+<div align="center">
+  <a href="https://www.instagram.com/corneliusyoga" target="_blank"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>&nbsp;
+  <a href="https://www.linkedin.com/in/cornelius-yoga-783b6a291" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>&nbsp;
+  <a href="https://www.youtube.com/channel/UCj0TlW5vLO6r_Nlwc8oFBpw" target="_blank"><img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"></a>&nbsp;
+  <a href="https://corneliusyoga.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Portfolio-%23000000.svg?&style=for-the-badge&logo=react&logoColor=white" alt="Portfolio"></a>
+  <br/><br/>
+  <img src="https://komarev.com/ghpvc/?username=CZY774&style=flat-square&color=0366D6" alt="Profile Views" />
+  <br/>
+  <sub>Made by Cornelius Ardhani Yoga Pratama</sub>
+</div>
