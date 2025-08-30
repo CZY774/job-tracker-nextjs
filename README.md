@@ -73,6 +73,14 @@ npx prisma db push
 npx prisma studio
 ```
 
+**IMPORTANT**: Jika masih error, coba restart dev server setelah generate:
+
+```bash
+# Stop dev server (Ctrl+C)
+npx prisma generate
+npm run dev
+```
+
 ### 6. Run the Development Server
 
 ```bash
